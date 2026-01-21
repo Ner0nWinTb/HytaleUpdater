@@ -215,9 +215,9 @@ echo ---------------------------------------------------
 echo  INSTALLING: %SELECTED_FIX_NAME%
 echo ---------------------------------------------------
 echo.
-echo  Destination: "%TARGET_GAME_DIR%"
+echo  Destination: "%ROOT_FOLDER%"
 echo.
-echo  Overwrite existing files?
+echo  Download Online-Fix?
 echo  [Y] Yes
 echo  [N] No (Cancel)
 echo.
@@ -237,7 +237,7 @@ if %errorlevel% neq 0 (
 echo.
 echo  [2/2] Extracting files...
 if not exist "%TARGET_GAME_DIR%" mkdir "%TARGET_GAME_DIR%"
-powershell -Command "Expand-Archive -Path '%FIX_ZIP%' -DestinationPath '%TARGET_GAME_DIR%' -Force"
+powershell -Command "Expand-Archive -Path '%FIX_ZIP%' -DestinationPath '%ROOT_FOLDER%' -Force"
 
 if %errorlevel% neq 0 (
     echo [ERROR] Extraction failed.
