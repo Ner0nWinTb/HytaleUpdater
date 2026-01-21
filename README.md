@@ -3,7 +3,7 @@
 ![GitHub license](https://img.shields.io/github/license/Ner0nWinTb/HytaleUpdater?color=orange)
 
 
-# HytaleUpdater
+# HytaleUpdater Beta
 
 A simple, automated tool to update the game using **Butler**.
 This package includes everything you need to download and apply the latest patches safely.
