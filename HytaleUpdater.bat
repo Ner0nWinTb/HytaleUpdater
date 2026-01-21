@@ -32,7 +32,7 @@ set "TARGET_GAME_DIR=%ROOT_FOLDER%\%SUBPATH_TO_GAME%"
 
 cls
 echo ========================================================
-echo         HYTALE UPDATER (By neronreal & GeminiAI)
+echo             HYTALE UPDATER (By neronreal)
 echo ========================================================
 echo.
 echo  [INFO] Script location (Root):
@@ -106,4 +106,5 @@ echo ===================================================
 echo          SUCCESS! Game has been updated.
 echo ===================================================
 echo.
+
 pause
