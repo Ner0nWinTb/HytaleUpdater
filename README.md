@@ -4,5 +4,5 @@
 
 Please give a star :3
 
-# How to use: 
+# How to use
 Extract the contents of the .zip file into the main game folder (where the launcher is) and run the script.
