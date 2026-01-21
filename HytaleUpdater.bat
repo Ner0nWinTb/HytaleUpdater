@@ -1,69 +1,116 @@
 @echo off
 setlocal EnableDelayedExpansion
-title HytaleUpdater v2.0
+title HytaleUpdater Beta v2.1
 
 :: ========================================================
 :: 1. KONFIGURACJA WERSJI GRY
 :: ========================================================
 set "V1_NAME=Update: Jan 15 - Jan 17 (Latest)"
-set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/"
+set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr"
 
 set "V2_NAME=HotFix: Jan 13 - Jan 15"
-set "V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/"
+set "V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr"
 
 :: ========================================================
-:: 2. KONFIGURACJA WERSJI ONLINE FIX (Z WYBOREM)
+:: 2. KONFIGURACJA WERSJI ONLINE FIX
 :: ========================================================
-
-:: Fix 1 (Najnowszy - z Twojego repo)
 set "FIX1_NAME=Online-Fix 15.01 - 17.01 (Latest)"
-set "FIX1_LINK="
+set "FIX1_LINK=https://trashbytes.net/dl/yYiz04P_yta6FdCfCA6mHTLPEqcWyiBBQEtLauFSfDGg2Z0GLrIuHaOub1flGc1jy7uKa2M59130F8RaoUcwgnx_Qi5AGbhlVkspHpzFvKFS?v=1769020873-cnLggA4mnARZBcPb8VnJ2RRAnlRF9FFWYMPgvladKAE%3D"
 
-:: Fix 2 (Starszy / Inny - przyklad)
 set "FIX2_NAME=Online-Fix (Template Ignore)"
 set "FIX2_LINK="
 
 :: ========================================================
-:: 3. USTAWIENIA PLIKOW
+:: 3. KONFIGURACJA SELF-UPDATERA (NOWOSC!)
+:: ========================================================
+:: Link do pliku .bat w wersji RAW (zazwyczaj main/master branch)
+set "SELF_UPDATE_LINK=https://raw.githubusercontent.com/Ner0nWinTb/HytaleUpdater/main/HytaleUpdater.bat"
+
+:: ========================================================
+:: 4. USTAWIENIA PLIKOW
 :: ========================================================
 set "BUTLER_EXE=butler.exe"
-:: Kropka = biezacy folder (folder skryptu)
-set "SUBPATH_TO_GAME=." 
+:: Gra instaluje sie gleboko (zgodnie z v2.0)
+set "SUBPATH_TO_GAME=install\release\package\game\latest" 
 
 set "PATCH_FILE=%TEMP%\update_patch.pwr"
 set "FIX_ZIP=%TEMP%\online_fix.zip"
+set "NEW_SCRIPT=%TEMP%\HytaleUpdater_New.bat"
 set "STAGING_DIR=%TEMP%\butler_staging_area"
 
 set "ROOT_FOLDER=%~dp0"
 if "%ROOT_FOLDER:~-1%"=="\" set "ROOT_FOLDER=%ROOT_FOLDER:~0,-1%"
 set "TARGET_GAME_DIR=%ROOT_FOLDER%\%SUBPATH_TO_GAME%"
+set "SCRIPT_NAME=%~nx0"
 
 :MAIN_MENU
 cls
 echo ========================================================
-echo                    HYTALE UPDATER v2.0
-echo                      (By @neronreal)
+echo                   HYTALE UPDATER v2.1
+echo                     (By @neronreal)
 echo ========================================================
 echo.
 echo   Current Status: Ready
 echo.
-echo   [1] Install / Switch Game Version
-echo   [2] Install / Switch Online-Fix
-echo   [3] Exit
+echo   [1] Update Hytale
+echo   [2] Add / Switch Online-Fix
+echo   [3] Update Script (Self-Update)
+echo   [4] Exit
 echo.
 echo ========================================================
-echo   Select option [1, 2, 3]...
+echo   Select option [1-4]...
 
-choice /C 123 /N
+choice /C 1234 /N
 
-if errorlevel 3 exit
+if errorlevel 4 exit
+if errorlevel 3 goto SELF_UPDATE
 if errorlevel 2 goto FIX_MENU
 if errorlevel 1 goto VERSION_MENU
 goto MAIN_MENU
 
 :: ========================================================
-:: MENU WYBORU GRY
+:: SEKCJA SELF-UPDATE (NOWA)
 :: ========================================================
+:SELF_UPDATE
+cls
+echo ---------------------------------------------------
+echo  CHECKING FOR SCRIPT UPDATES
+echo ---------------------------------------------------
+echo.
+echo  This will download the latest version from GitHub
+echo  and restart the script.
+echo.
+echo  Current File: %SCRIPT_NAME%
+echo.
+echo  [Y] Update Now
+echo  [N] Cancel
+echo.
+choice /C YN /N
+if errorlevel 2 goto MAIN_MENU
+
+echo.
+echo  Downloading update...
+powershell -Command "Invoke-WebRequest -Uri '%SELF_UPDATE_LINK%' -OutFile '%NEW_SCRIPT%'"
+
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to download update. Check internet or link.
+    pause
+    goto MAIN_MENU
+)
+
+echo.
+echo  [SUCCESS] Update downloaded. Restarting...
+timeout /t 2 >nul
+
+:: --- MAGIA SWAPOWANIA PLIKOW ---
+:: Uruchamiamy cmd w tle, czekamy 1s, nadpisujemy plik .bat i odpalamy go na nowo
+start "" /min cmd /c "timeout /t 1 >nul & move /y "%NEW_SCRIPT%" "%ROOT_FOLDER%\%SCRIPT_NAME%" & start "" "%ROOT_FOLDER%\%SCRIPT_NAME%""
+exit
+
+:: ========================================================
+:: RESZTA KODU (BEZ ZMIAN W LOGICE)
+:: ========================================================
+
 :VERSION_MENU
 cls
 echo ========================================================
@@ -92,9 +139,6 @@ if errorlevel 1 (
 )
 goto VERSION_MENU
 
-:: ========================================================
-:: MENU WYBORU ONLINE FIX
-:: ========================================================
 :FIX_MENU
 cls
 echo ========================================================
@@ -123,9 +167,6 @@ if errorlevel 1 (
 )
 goto FIX_MENU
 
-:: ========================================================
-:: INSTALACJA GRY (PWR)
-:: ========================================================
 :INSTALL_GAME
 cls
 echo ---------------------------------------------------
@@ -160,18 +201,14 @@ if %errorlevel% neq 0 (
     goto MAIN_MENU
 )
 
-:: Sprzatanie
 if exist "%PATCH_FILE%" del "%PATCH_FILE%"
 if exist "%STAGING_DIR%" rmdir /s /q "%STAGING_DIR%"
 
 echo.
-echo  [SUCCESS] Game installed successfully.
+echo  [SUCCESS] Game updated successfully.
 pause >nul
 goto MAIN_MENU
 
-:: ========================================================
-:: INSTALACJA ONLINE FIX (ZIP)
-:: ========================================================
 :INSTALL_FIX
 cls
 echo ---------------------------------------------------
@@ -199,7 +236,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo  [2/2] Extracting files...
-:: Rozpakowuje ZIP i nadpisuje istniejace pliki (-Force)
+if not exist "%TARGET_GAME_DIR%" mkdir "%TARGET_GAME_DIR%"
 powershell -Command "Expand-Archive -Path '%FIX_ZIP%' -DestinationPath '%TARGET_GAME_DIR%' -Force"
 
 if %errorlevel% neq 0 (
@@ -208,7 +245,6 @@ if %errorlevel% neq 0 (
     goto MAIN_MENU
 )
 
-:: Sprzatanie
 if exist "%FIX_ZIP%" del "%FIX_ZIP%"
 
 echo.
