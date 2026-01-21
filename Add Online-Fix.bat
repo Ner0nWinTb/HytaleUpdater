@@ -21,7 +21,7 @@ set "GAME_FOLDER=%~dp0"
 
 cls
 echo ========================================================
-echo      Online-Fix Applier (By neronreal & GeminiAI)
+echo           Online-Fix Applier (By neronreal)
 echo ========================================================
 echo.
 echo  Target directory:
@@ -80,4 +80,5 @@ echo           SUCCESS! Online-Fix added!
 echo           You can now start the game
 echo ===================================================
 echo.
+
 pause
