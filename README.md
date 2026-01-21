@@ -18,13 +18,13 @@ This package includes everything you need to download and apply the latest patch
 - **User-Friendly:** Step-by-step interface with progress messages.
 
 ## 📋 Prerequisites
-1. You must have the **Hytale** game installed.
+1. You must have the **Hytale** game installed. (Crack Support)
 2. Ensure the game and launcher are **closed** before updating.
 
 ## 🛠️ How to Use
 1. Download the latest release `.zip` package.
 2. Extract **all files** (the script and `butler.exe`) into your main **Hytale** folder (where the Launcher is located).
-3. Run `HytaleUpdater (version).bat`.
+3. Run `HytaleUpdater.bat`.
 4. Follow the instructions on the screen.
 
 ## ⚠️ Note
