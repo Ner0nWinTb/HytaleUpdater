@@ -18,7 +18,7 @@ This package includes everything you need to download and apply the latest patch
 - **User-Friendly:** Step-by-step interface with progress messages.
 
 ## 📋 Prerequisites
-1. You must have the **Hytale** game installed. (Crack Support)
+1. You must have the **Hytale** game installed. (Crack Support🏴‍☠️)
 2. Ensure the game and launcher are **closed** before updating.
 
 ## 🛠️ How to Use
