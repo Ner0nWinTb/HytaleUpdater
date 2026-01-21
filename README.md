@@ -1,3 +1,8 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ner0nWinTb/HytaleUpdater?color=green&label=Latest%20Version)
+![GitHub All releases](https://img.shields.io/github/downloads/Ner0nWinTb/HytaleUpdater/total?color=blue&label=Downloads)
+![GitHub license](https://img.shields.io/github/license/Ner0nWinTb/HytaleUpdater?color=orange)
+
+
 # HytaleUpdater
 
 A simple, automated tool to update the game using **Butler**.
