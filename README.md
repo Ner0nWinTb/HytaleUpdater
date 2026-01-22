@@ -8,7 +8,8 @@
 A simple, automated tool to update the game using **Butler**.
 This package includes everything you need to download and apply the latest patches safely.
 
-<img width="652" height="464" alt="image" src="https://github.com/user-attachments/assets/0937b3cc-d16c-4463-8ead-392198a92f94" />
+<img width="642" height="453" alt="image" src="https://github.com/user-attachments/assets/6a17ddde-a90e-4231-b1dd-8082f5c1d8d2" />
+
 
 
 
