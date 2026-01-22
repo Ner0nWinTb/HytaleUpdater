@@ -1,36 +1,41 @@
 @echo off
 setlocal EnableDelayedExpansion
-title HytaleUpdater Beta v2.1
+title HytaleUpdater Beta v2.2
 
 :: ========================================================
-:: 1. KONFIGURACJA WERSJI GRY
+:: 1. KONFIGURACJA WERSJI GRY (TERAZ 3 WERSJE)
 :: ========================================================
-set "V1_NAME=Update: Jan 15 - Jan 17 (Latest)"
-set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr"
 
-set "V2_NAME=HotFix: Jan 13 - Jan 15"
-set "V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr"
+:: --- NOWOSC: Opcja 1 (Pre-Release) ---
+set "V1_NAME=Update 2: Jan 17 - Jan 22 (Pre-Release)"
+set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/pre-release/8/9.pwr"
+
+:: --- Opcja 2 (Byla wczesniej nr 1) ---
+set "V2_NAME=Update 1: Jan 15 - Jan 17 (Latest Stable)"
+set "V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr"
+
+:: --- Opcja 3 (Byla wczesniej nr 2) ---
+set "V3_NAME=HotFix 2: Jan 13 - Jan 15"
+set "V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr"
 
 :: ========================================================
 :: 2. KONFIGURACJA WERSJI ONLINE FIX
 :: ========================================================
-set "FIX1_NAME=Online-Fix 15.01 - 17.01 (Latest)"
+set "FIX1_NAME=Online-Fix 15.01 - 17.01 (Latest) (Don't work with Pre-Release)"
 set "FIX1_LINK=https://trashbytes.net/dl/yYiz04P_yta6FdCfCA6mHTLPEqcWyiBBQEtLauFSfDGg2Z0GLrIuHaOub1flGc1jy7uKa2M59130F8RaoUcwgnx_Qi5AGbhlVkspHpzFvKFS?v=1769020873-cnLggA4mnARZBcPb8VnJ2RRAnlRF9FFWYMPgvladKAE%3D"
 
 set "FIX2_NAME=Online-Fix (Template Ignore)"
 set "FIX2_LINK="
 
 :: ========================================================
-:: 3. KONFIGURACJA SELF-UPDATERA (NOWOSC!)
+:: 3. KONFIGURACJA SELF-UPDATERA
 :: ========================================================
-:: Link do pliku .bat w wersji RAW (zazwyczaj main/master branch)
 set "SELF_UPDATE_LINK=https://raw.githubusercontent.com/Ner0nWinTb/HytaleUpdater/main/HytaleUpdater.bat"
 
 :: ========================================================
 :: 4. USTAWIENIA PLIKOW
 :: ========================================================
 set "BUTLER_EXE=butler.exe"
-:: Gra instaluje sie gleboko (zgodnie z v2.0)
 set "SUBPATH_TO_GAME=install\release\package\game\latest" 
 
 set "PATCH_FILE=%TEMP%\update_patch.pwr"
@@ -46,13 +51,13 @@ set "SCRIPT_NAME=%~nx0"
 :MAIN_MENU
 cls
 echo ========================================================
-echo                   HYTALE UPDATER v2.1
+echo                   HYTALE UPDATER v2.2
 echo                     (By @neronreal)
 echo ========================================================
 echo.
 echo   Current Status: Ready
 echo.
-echo   [1] Update Hytale
+echo   [1] Update Hytale (Select Version)
 echo   [2] Add / Switch Online-Fix
 echo   [3] Update Script (Self-Update)
 echo   [4] Exit
@@ -69,7 +74,7 @@ if errorlevel 1 goto VERSION_MENU
 goto MAIN_MENU
 
 :: ========================================================
-:: SEKCJA SELF-UPDATE (NOWA)
+:: SEKCJA SELF-UPDATE
 :: ========================================================
 :SELF_UPDATE
 cls
@@ -102,31 +107,34 @@ echo.
 echo  [SUCCESS] Update downloaded. Restarting...
 timeout /t 2 >nul
 
-:: --- MAGIA SWAPOWANIA PLIKOW ---
-:: Uruchamiamy cmd w tle, czekamy 1s, nadpisujemy plik .bat i odpalamy go na nowo
 start "" /min cmd /c "timeout /t 1 >nul & move /y "%NEW_SCRIPT%" "%ROOT_FOLDER%\%SCRIPT_NAME%" & start "" "%ROOT_FOLDER%\%SCRIPT_NAME%""
 exit
 
 :: ========================================================
-:: RESZTA KODU (BEZ ZMIAN W LOGICE)
+:: MENU WYBORU GRY (3 OPCJE)
 :: ========================================================
-
 :VERSION_MENU
 cls
 echo ========================================================
-echo   SELECT GAME VERSION
+echo   SELECT UPDATE
 echo ========================================================
 echo.
 echo   [1] %V1_NAME%
 echo   [2] %V2_NAME%
+echo   [3] %V3_NAME%
 echo.
 echo   [B] Back
 echo.
 echo ========================================================
-echo   Select version [1, 2] or [B]ack...
-choice /C 12B /N
+echo   Select version [1, 2, 3] or [B]ack...
+choice /C 123B /N
 
-if errorlevel 3 goto MAIN_MENU
+if errorlevel 4 goto MAIN_MENU
+if errorlevel 3 (
+    set "SELECTED_LINK=%V3_LINK%"
+    set "SELECTED_NAME=%V3_NAME%"
+    goto INSTALL_GAME
+)
 if errorlevel 2 (
     set "SELECTED_LINK=%V2_LINK%"
     set "SELECTED_NAME=%V2_NAME%"
@@ -139,6 +147,9 @@ if errorlevel 1 (
 )
 goto VERSION_MENU
 
+:: ========================================================
+:: MENU WYBORU ONLINE FIX
+:: ========================================================
 :FIX_MENU
 cls
 echo ========================================================
@@ -167,10 +178,13 @@ if errorlevel 1 (
 )
 goto FIX_MENU
 
+:: ========================================================
+:: INSTALACJA GRY (WERSJA STABILNA)
+:: ========================================================
 :INSTALL_GAME
 cls
 echo ---------------------------------------------------
-echo  Installing Game: %SELECTED_NAME%
+echo  Downloading Hytale: %SELECTED_NAME%
 echo ---------------------------------------------------
 
 if not exist "%ROOT_FOLDER%\%BUTLER_EXE%" (
@@ -190,25 +204,40 @@ if %errorlevel% neq 0 (
 
 echo.
 echo  [2/2] Applying patch...
+
+:: --- FIX: Czyszczenie folderu tymczasowego przed startem ---
+if exist "%STAGING_DIR%" (
+    rmdir /s /q "%STAGING_DIR%"
+)
+:: ----------------------------------------------------------
+
 if not exist "%TARGET_GAME_DIR%" mkdir "%TARGET_GAME_DIR%"
-if not exist "%STAGING_DIR%" mkdir "%STAGING_DIR%"
+mkdir "%STAGING_DIR%"
 
 "%ROOT_FOLDER%\%BUTLER_EXE%" apply --staging-dir="%STAGING_DIR%" "%PATCH_FILE%" "%TARGET_GAME_DIR%"
 
 if %errorlevel% neq 0 (
-    echo [ERROR] Update failed.
+    echo.
+    echo [ERROR] Update failed!
+    echo Butler could not finish patching.
     pause
     goto MAIN_MENU
 )
 
-if exist "%PATCH_FILE%" del "%PATCH_FILE%"
+echo.
+echo  [SUCCESS] Game updated successfully!
+echo  (Press any key to clean up temp files and return to menu...)
+pause >nul
+
+:: Sprzatanie robimy DOPIERO PO wcisnieciu klawisza
+if exist "%PATCH_FILE%" del /f /q "%PATCH_FILE%"
 if exist "%STAGING_DIR%" rmdir /s /q "%STAGING_DIR%"
 
-echo.
-echo  [SUCCESS] Game updated successfully.
-pause >nul
 goto MAIN_MENU
 
+:: ========================================================
+:: INSTALACJA ONLINE FIX
+:: ========================================================
 :INSTALL_FIX
 cls
 echo ---------------------------------------------------
