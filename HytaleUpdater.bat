@@ -59,7 +59,7 @@ set "SCRIPT_NAME=%~nx0"
 cls
 echo ========================================================
 echo                   HYTALE UPDATER v2.3
-echo                (With Backup System)
+echo                     (By @neronreal)
 echo ========================================================
 echo.
 echo   Current Status: Ready
@@ -176,7 +176,7 @@ echo   [IMPORTANT] Switching to Pre-Release.
 echo   Do you want to BACKUP your current Stable version?
 echo.
 echo   [Y] Yes - Create Backup (Recommended)
-echo   [N] No  - Proceed without Backup
+echo   [N] No  - Proceed without Backup (Risky!)
 echo.
 echo ========================================================
 choice /C YN /N
@@ -270,7 +270,7 @@ goto FIX_MENU
 :INSTALL_GAME
 cls
 echo ---------------------------------------------------
-echo  Installing Game: %SELECTED_NAME%
+echo  Downloading Hytale %SELECTED_NAME%
 echo ---------------------------------------------------
 
 if not exist "%ROOT_FOLDER%\%BUTLER_EXE%" (
@@ -280,7 +280,7 @@ if not exist "%ROOT_FOLDER%\%BUTLER_EXE%" (
 )
 
 echo.
-echo  [1/2] Downloading patch...
+echo  [1/3] Downloading patch...
 powershell -Command "Invoke-WebRequest -Uri '%SELECTED_LINK%' -OutFile '%PATCH_FILE%'"
 if %errorlevel% neq 0 (
     echo [ERROR] Download failed.
@@ -289,7 +289,7 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo  [2/2] Applying patch...
+echo  [2/3] Applying patch...
 
 :: --- FIX: Czyszczenie folderu tymczasowego przed startem ---
 if exist "%STAGING_DIR%" (
@@ -313,9 +313,7 @@ if %errorlevel% neq 0 (
 :: --- NOWOSC: JAVA FIX (TYLKO DLA PRE-RELEASE) ---
 if "%SELECTED_NAME%"=="%V1_NAME%" (
     echo.
-    echo  ---------------------------------------------------
-    echo   [3/3] Installing Java Fix (.JAR)
-    echo  ---------------------------------------------------
+    echo   [3/3] Installing Java Fix
     
     :: Tworzymy folder Server jesli nie istnieje
     if not exist "%TARGET_GAME_DIR%\Server" mkdir "%TARGET_GAME_DIR%\Server"
