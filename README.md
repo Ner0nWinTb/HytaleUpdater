@@ -13,10 +13,17 @@ This package includes everything you need to download and apply the latest patch
 
 
 ## 🚀 Features
-- **All-in-One:** Includes `butler.exe` - no extra downloads required.
-- **Automatic Download:** Fetches the patch directly from the server.
-- **Safety Checks:** Verifies if game folders exist before starting.
-- **User-Friendly:** Step-by-step interface with progress messages.
+
+### 🌟 New in v2.3
+* **💾 Smart Backup System:** Switch between **Stable** (Online) and **Pre-Release** (Offline) versions in seconds! The script creates a local mirror of your game files, so you never have to redownload the full game when swapping versions.
+* **☕ Auto Java-Fix (Server Patch):** Automatically downloads and applies a **modified `HytaleServer.jar`** for the Pre-Release build. This patched file bypasses authentication checks, allowing the local server to start correctly for Singleplayer.
+* **🛡️ Robust Error Handling:** Rewritten logic ensures the script won't crash on special characters in links or file paths.
+
+### ⚡ Core Capabilities
+* **All-in-One Patcher:** Includes `butler.exe` to handle efficient delta-patching directly from the official servers.
+* **Integrated Online-Fix:** Built-in menu to download and install the latest Online-Fix for multiplayer support (Stable version only).
+* **🔄 Built-in Updater:** Includes a dedicated menu option to update the script itself from GitHub, ensuring you always have the latest fixes and links.
+* **Access Denied Prevention:** Automatically cleans up temporary staging directories (`butler_staging_area`) to prevent permission errors during updates.
 
 ## 📋 Prerequisites
 1. You must have the **Hytale** game installed. (Crack Supported🏴‍☠️)
