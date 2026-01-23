@@ -37,7 +37,7 @@ This package includes everything you need to download and apply the latest patch
 3. Run `HytaleUpdater.bat`.
 4. Follow the instructions on the screen.
 
-## Star History⭐
+## ⭐ Star History
 
 <a href="https://www.star-history.com/#Ner0nWinTb/HytaleUpdater&type=date&legend=top-left">
  <picture>
