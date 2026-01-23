@@ -37,12 +37,6 @@ This package includes everything you need to download and apply the latest patch
 3. Run `HytaleUpdater.bat`.
 4. Follow the instructions on the screen.
 
-## ⚠️ Note
-This is a community-made tool. It is not officially affiliated with the game developers.
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Star History⭐
 
 <a href="https://www.star-history.com/#Ner0nWinTb/HytaleUpdater&type=date&legend=top-left">
@@ -52,3 +46,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Ner0nWinTb/HytaleUpdater&type=date&legend=top-left" />
  </picture>
 </a>
+
+## ⚠️ Note
+This is a community-made tool. It is not officially affiliated with the game developers.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
