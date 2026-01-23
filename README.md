@@ -15,10 +15,11 @@ This package includes everything you need to download and apply the latest patch
 
 ## 🚀 Features
 
-### 🌟 New in v2.3
-* **💾 Smart Backup System:** Switch between **Stable** (Online) and **Pre-Release** (Offline) versions in seconds! The script creates a local mirror of your game files, so you never have to redownload the full game when swapping versions.
-* **☕ Auto Java-Fix (Local Server Patch):** Automatically downloads and applies a **modified `HytaleServer.jar`** for the Pre-Release build. This patched file bypasses authentication checks, allowing the local server to start correctly for Singleplayer.
-* **🛡️ Robust Error Handling:** Rewritten logic ensures the script won't crash on special characters in links or file paths.
+### 🌟 New in v2.4
+
+* **💾 Save Manager (Import / Export):** Added a dedicated menu (Option `[3]`) to backup your `Client\UserData`. This ensures your **Worlds, Avatars, and Settings** remain safe when switching between Stable and Pre-Release versions or reinstalling the game.
+* **☕ Auto Java-Fix (Pre-Release):** The script now automatically downloads and applies a patched `HytaleServer.jar` during the Pre-Release installation. This fixes the critical **"Internal Server Error"** crash, making Singleplayer playable offline.
+* **🔇 Silent Backup & Auto-Cleanup:** The Backup and Restore processes are now cleaner (no console spam) and automatically delete temporary backup files after a successful version switch to save disk space.
 
 ### ⚡ Core Capabilities
 * **All-in-One Patcher:** Includes `butler.exe` to handle efficient delta-patching directly from the official servers.
