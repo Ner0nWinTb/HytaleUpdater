@@ -6,12 +6,11 @@ title HytaleUpdater Beta v2.3
 :: 1. KONFIGURACJA WERSJI GRY
 :: ========================================================
 
-:: --- NOWOSC: Opcja 1 (Pre-Release) ---
+:: --- Opcja 1 (Pre-Release) ---
 set "V1_NAME=Update 2: Jan 17 - Jan 22 (Pre-Release)"
 set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/pre-release/8/9.pwr"
 
 :: !!! JAVA FIX (DLA PRE-RELEASE) !!!
-:: Wklej tutaj link bezposredni do pliku .jar
 set "JAVA_FIX_LINK=http://dl.dropboxusercontent.com//scl/fi/91g8f4yvp6hrjq1urvr0j/HytaleServer.jar?rlkey=xf3nayfuzezu1acb11agsqyoz&st=p8f2kd9v&dl=0"
 
 :: --- Opcja 2 (Stable) ---
@@ -41,7 +40,6 @@ set "SELF_UPDATE_LINK=https://raw.githubusercontent.com/Ner0nWinTb/HytaleUpdater
 :: ========================================================
 set "BUTLER_EXE=butler.exe"
 set "SUBPATH_TO_GAME=install\release\package\game\latest" 
-:: --- Folder Backupu ---
 set "SUBPATH_BACKUP=install\release\package\game\backup_stable"
 
 set "PATCH_FILE=%TEMP%\update_patch.pwr"
@@ -159,12 +157,10 @@ if errorlevel 1 (
 goto VERSION_MENU
 
 :: ========================================================
-:: LOGIKA BACKUPU
+:: LOGIKA BACKUPU (CICHY TRYB)
 :: ========================================================
 :CHECK_BACKUP
-:: Jesli folder gry pusty, nie robimy backupu
 if not exist "%TARGET_GAME_DIR%" goto INSTALL_GAME
-:: Jesli backup juz jest, nie nadpisujemy go
 if exist "%BACKUP_DIR%" goto INSTALL_GAME
 
 cls
@@ -184,8 +180,9 @@ choice /C YN /N
 if errorlevel 2 goto INSTALL_GAME
 
 echo.
-echo   Cloning game files... (Robocopy)
-robocopy "%TARGET_GAME_DIR%" "%BACKUP_DIR%" /MIR /NFL /NDL /NJH /NJS
+echo   Cloning game files...
+:: FIX: Dodano >nul zeby nie bylo sciany tekstu
+robocopy "%TARGET_GAME_DIR%" "%BACKUP_DIR%" /MIR >nul
 
 if %errorlevel% gtr 7 (
     echo [ERROR] Backup failed.
@@ -198,7 +195,7 @@ timeout /t 1 >nul
 goto INSTALL_GAME
 
 :: ========================================================
-:: LOGIKA RESTORE (POPRAWIONA)
+:: LOGIKA RESTORE (CICHY TRYB + KASOWANIE)
 :: ========================================================
 :CHECK_RESTORE
 if not exist "%BACKUP_DIR%" goto INSTALL_GAME
@@ -209,7 +206,7 @@ echo   RESTORE SYSTEM
 echo ========================================================
 echo.
 echo   Found a Stable Backup!
-echo   Do you want to restore it instead of downloading?
+echo   Do you want to restore it?
 echo.
 echo   [Y] Yes - Restore Backup (Instant)
 echo   [N] No  - Cancel (Return to Menu)
@@ -217,12 +214,12 @@ echo.
 echo ========================================================
 choice /C YN /N
 
-:: FIX: Wybranie N wraca do menu glownego
 if errorlevel 2 goto MAIN_MENU
 
 echo.
 echo   Restoring Stable version...
-robocopy "%BACKUP_DIR%" "%TARGET_GAME_DIR%" /MIR /NFL /NDL /NJH /NJS
+:: FIX: Dodano >nul zeby nie bylo sciany tekstu
+robocopy "%BACKUP_DIR%" "%TARGET_GAME_DIR%" /MIR >nul
 
 if %errorlevel% gtr 7 (
     echo [ERROR] Restore failed.
@@ -231,6 +228,12 @@ if %errorlevel% gtr 7 (
 )
 
 echo   [SUCCESS] Restored Stable Version!
+
+:: FIX: Kasowanie backupu po przywroceniu
+echo   Cleaning up backup files...
+rmdir /s /q "%BACKUP_DIR%"
+echo   [OK] Cleanup complete.
+
 pause
 goto MAIN_MENU
 
@@ -292,11 +295,9 @@ if %errorlevel% neq 0 (
 echo.
 echo  [2/3] Applying patch...
 
-:: --- FIX: Czyszczenie folderu tymczasowego przed startem ---
 if exist "%STAGING_DIR%" (
     rmdir /s /q "%STAGING_DIR%"
 )
-:: ----------------------------------------------------------
 
 if not exist "%TARGET_GAME_DIR%" mkdir "%TARGET_GAME_DIR%"
 mkdir "%STAGING_DIR%"
@@ -311,15 +312,13 @@ if %errorlevel% neq 0 (
     goto MAIN_MENU
 )
 
-:: --- NOWOSC: JAVA FIX (TYLKO DLA PRE-RELEASE) ---
+:: --- JAVA FIX (TYLKO DLA PRE-RELEASE) ---
 if "%SELECTED_NAME%"=="%V1_NAME%" (
     echo.
     echo   [3/3] Installing Java Fix
     
-    :: Tworzymy folder Server jesli nie istnieje
     if not exist "%TARGET_GAME_DIR%\Server" mkdir "%TARGET_GAME_DIR%\Server"
     
-    :: Pobieramy BEZPOSREDNIO jako HytaleServer.jar
     echo   Downloading HytaleServer.jar...
     powershell -Command "Invoke-WebRequest -Uri '%JAVA_FIX_LINK%' -OutFile '%TARGET_GAME_DIR%\Server\HytaleServer.jar'"
     
@@ -340,7 +339,7 @@ pause >nul
 goto MAIN_MENU
 
 :: ========================================================
-:: INSTALACJA ONLINE FIX (STARA DOBRA WERSJA V2.2)
+:: INSTALACJA ONLINE FIX
 :: ========================================================
 :INSTALL_FIX
 cls
