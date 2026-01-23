@@ -12,7 +12,7 @@ set "V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/pre-release/8
 
 :: !!! JAVA FIX (DLA PRE-RELEASE) !!!
 :: Wklej tutaj link bezposredni do pliku .jar
-set "JAVA_FIX_LINK=https://trashbytes.net/dl/DthrW7Ob6TvgLRsV9-W1p1JOCRR2xjzhHR6rrFPxwTitB2xwoHM0JxdYaO_GY5tcz2E3XHtJSytWyK-nqRhsPmi-MsWfaFcoY0kx5IQNG9QwBvCx?v=1769085610-zC54zt%2FLBZte98QQCu2YwydL5YE7jxL224aKEDRjLJI%3D"
+set "JAVA_FIX_LINK=http://dl.dropboxusercontent.com//scl/fi/91g8f4yvp6hrjq1urvr0j/HytaleServer.jar?rlkey=xf3nayfuzezu1acb11agsqyoz&st=p8f2kd9v&dl=0"
 
 :: --- Opcja 2 (Stable) ---
 set "V2_NAME=Update 1: Jan 15 - Jan 17 (Latest Stable)"
@@ -26,7 +26,7 @@ set "V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.p
 :: 2. KONFIGURACJA WERSJI ONLINE FIX
 :: ========================================================
 set "FIX1_NAME=Online-Fix 15.01 - 17.01 (Latest)"
-set "FIX1_LINK=https://trashbytes.net/dl/yYiz04P_yta6FdCfCA6mHTLPEqcWyiBBQEtLauFSfDGg2Z0GLrIuHaOub1flGc1jy7uKa2M59130F8RaoUcwgnx_Qi5AGbhlVkspHpzFvKFS?v=1769020873-cnLggA4mnARZBcPb8VnJ2RRAnlRF9FFWYMPgvladKAE%3D"
+set "FIX1_LINK=http://dl.dropboxusercontent.com/scl/fi/mm2bntn58vn9m0ba4ebam/OnlineFixBackup.zip?rlkey=ok6vogia9ey5s7o1evg21e4o7&st=yogaeame&dl=0"
 
 set "FIX2_NAME=Online-Fix (Template Ignore)"
 set "FIX2_LINK="
