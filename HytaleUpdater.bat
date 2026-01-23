@@ -198,7 +198,7 @@ timeout /t 1 >nul
 goto INSTALL_GAME
 
 :: ========================================================
-:: LOGIKA RESTORE
+:: LOGIKA RESTORE (POPRAWIONA)
 :: ========================================================
 :CHECK_RESTORE
 if not exist "%BACKUP_DIR%" goto INSTALL_GAME
@@ -212,12 +212,13 @@ echo   Found a Stable Backup!
 echo   Do you want to restore it instead of downloading?
 echo.
 echo   [Y] Yes - Restore Backup (Instant)
-echo   [N] No  - Download Fresh Files
+echo   [N] No  - Cancel (Return to Menu)
 echo.
 echo ========================================================
 choice /C YN /N
 
-if errorlevel 2 goto INSTALL_GAME
+:: FIX: Wybranie N wraca do menu glownego
+if errorlevel 2 goto MAIN_MENU
 
 echo.
 echo   Restoring Stable version...
