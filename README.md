@@ -16,11 +16,13 @@ This package includes everything you need to download and apply the latest patch
 
 ## 🚀 Features
 
-### 🌟 New in v2.4
+### ✨ New in v2.5
 
-* **💾 Save Manager (Import / Export):** Added a dedicated menu (Option `[3]`) to backup your `Client\UserData`. This ensures your **Worlds, Avatars, and Settings** remain safe when switching between Stable and Pre-Release versions or reinstalling the game.
-* **🔇 Silent Backup & Auto-Cleanup:** The Backup and Restore processes now run quietly in the background (no console spam) and automatically delete temporary files after a successful restore to save disk space.
-* **🔧 Critical Logic Fixes:** Fixed a bug where navigating the menus could cause the script to crash on certain systems (rewritten `if` statements to safer `goto` logic).
+* 🚀 **Support for Update 2 (Jan 24):** Updated repository links to the latest stable patch. The menu now displays exact file sizes `(71.1MB)` to ensure transparency before downloading.
+* 🛡️ **Smart Safety System:** Added a new logic layer that checks for a backup before updating. If you select **Option [1]** and no backup exists, the script will prompt you to create one—ensuring you can instantly revert if the new version breaks Multiplayer compatibility.
+* ☕ **Auto Java-Fix (Day-One Patch):** Automatically downloads and installs a patched `HytaleServer.jar` when installing Update 2. This enables immediate **Singleplayer** access while waiting for a new Online-Fix.
+* 💾 **UserData Manager:** Renamed from "Save Manager" to clearly indicate it handles all user data (Worlds, Avatars, Settings). Added checks to prevent overwriting data during version swaps.
+* ⚠️ **Pre-Release Cleanup:** Officially dropped support for the experimental "Pre-Release" build to prevent file corruption. The updater now strictly enforces the Stable Release path.
 
 ### ⚡ Core Capabilities
 * **All-in-One Patcher:** Includes `butler.exe` to handle efficient delta-patching directly from the official servers.
