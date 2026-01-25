@@ -45,7 +45,7 @@ This package includes everything you need to download and apply the latest patch
 
 ## ⭐ Star History
 
-<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://www.star-history.com/embed?secret=Z2hwX1dJSGF1eW5UcFhIRnNWMlJEQUFUaHVVMjduWjl1TjQxOU5heg==#Ner0nWinTb/HytaleUpdater&type=date&legend=top-left" frameBorder="0"></iframe>
+<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://www.star-history.com/embed?secret=Z2hwX1JtdTRxTm52OXRnOXpsM25FdkZaRVl2SGtHZVRDVTJleDZFcA==#Ner0nWinTb/HytaleUpdater&type=date&legend=top-left" frameBorder="0"></iframe>
 
 ## ⚠️ Note
 This is a community-made tool. It is not officially affiliated with the game developers.
