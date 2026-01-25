@@ -45,6 +45,8 @@ This package includes everything you need to download and apply the latest patch
 
 ## ⭐ Star History
 
+## Star History
+
 <a href="https://www.star-history.com/#Ner0nWinTb/HytaleUpdater&type=date&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Ner0nWinTb/HytaleUpdater&type=date&theme=dark&legend=top-left" />
