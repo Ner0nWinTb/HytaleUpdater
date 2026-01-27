@@ -4,7 +4,6 @@ V2_NAME=Update 1: Jan 15 -> Jan 17 (67,9MB)
 V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr
 V3_NAME=HotFix 2: Jan 13 -> Jan 15 (57,7MB)
 V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr
-
 FIX1_NAME=Online-Fix for 24.01 (Wait for Release)
 FIX1_LINK=
 FIX2_NAME=Online-Fix for 17.01 (89,4MB)
