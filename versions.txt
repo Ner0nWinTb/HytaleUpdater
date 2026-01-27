@@ -23,6 +23,10 @@ FIX1_LINK=
 FIX2_NAME=Online-Fix for 17.01 (89,4MB)
 FIX2_LINK=http://dl.dropboxusercontent.com/scl/fi/mm2bntn58vn9m0ba4ebam/OnlineFixBackup.zip?rlkey=ok6vogia9ey5s7o1evg21e4o7&st=yogaeame&dl=0
 
+FIX3_NAME=test omegalul
+FIX3_LINK=
+
 ; --- Inne ---
 
 JAVA_FIX_LINK=http://dl.dropboxusercontent.com//scl/fi/91g8f4yvp6hrjq1urvr0j/HytaleServer.jar?rlkey=xf3nayfuzezu1acb11agsqyoz&st=p8f2kd9v&dl=0
+
