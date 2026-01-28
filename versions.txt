@@ -1,28 +1,32 @@
 ; --- Hytale Updates ---
 
-V1_NAME=HotFix 3: Jan 24 -> Jan 28 (56,6MB) (Latest)
+V1_NAME=HotFix 3.1: Jan 27 -> Jan 28 (56,6MB) (Latest)
 V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/6/7.pwr
 V1_JAVAFIX=1
 
-V2_NAME=Update 2: Jan 17 -> Jan 24 (71,1MB)
-V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/4/5.pwr
+V2_NAME=HotFix 3: Jan 24 -> Jan 27 (60,4MB) (Latest)
+V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/5/6.pwr
 V2_JAVAFIX=1
 
-V3_NAME=Update 1: Jan 15 -> Jan 17 (67,9MB)
-V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr
-V3_JAVAFIX=0
+V3_NAME=Update 2: Jan 17 -> Jan 24 (71,1MB)
+V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/4/5.pwr
+V3_JAVAFIX=1
 
-V4_NAME=HotFix 2: Jan 13 -> Jan 15 (57,7MB)
-V4_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr
+V4_NAME=Update 1: Jan 15 -> Jan 17 (67,9MB)
+V4_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr
 V4_JAVAFIX=0
 
-V5_NAME=HotFix 1: Jan 13 -> Jan 13 (59,9MB)
-V5_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/1/2.pwr
+V5_NAME=HotFix 2: Jan 13 -> Jan 15 (57,7MB)
+V5_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr
 V5_JAVAFIX=0
+
+V6_NAME=HotFix 1: Jan 13 -> Jan 13 (59,9MB)
+V6_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/1/2.pwr
+V6_JAVAFIX=0
 
 ; --- Online Fixes ---
 
-FIX1_NAME=Online-Fix for 27.01 (MB)
+FIX1_NAME=Online-Fix for 28.01 (MB)
 FIX1_LINK=
 
 FIX2_NAME=Online-Fix for 17.01 (89,4MB)
@@ -35,6 +39,7 @@ JAVAFIX2_LINK=
 JAVAFIX3_LINK=
 JAVAFIX4_LINK=
 JAVAFIX5_LINK=
+
 
 
 
