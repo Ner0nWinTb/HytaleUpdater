@@ -4,7 +4,7 @@ V1_NAME=HotFix 3.1: Jan 27 -> Jan 28 (56,6MB) (Latest)
 V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/6/7.pwr
 V1_JAVAFIX=1
 
-V2_NAME=HotFix 3: Jan 24 -> Jan 27 (60,4MB) (Latest)
+V2_NAME=HotFix 3: Jan 24 -> Jan 27 (60,4MB)
 V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/5/6.pwr
 V2_JAVAFIX=1
 
@@ -39,6 +39,7 @@ JAVAFIX2_LINK=
 JAVAFIX3_LINK=
 JAVAFIX4_LINK=
 JAVAFIX5_LINK=
+
 
 
 
