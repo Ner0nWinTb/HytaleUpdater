@@ -22,7 +22,7 @@ V5_JAVAFIX=0
 
 ; --- Online Fixes ---
 
-FIX1_NAME=Online-Fix for 24.01 (MB)
+FIX1_NAME=Online-Fix for 27.01 (MB)
 FIX1_LINK=
 
 FIX2_NAME=Online-Fix for 17.01 (89,4MB)
@@ -35,6 +35,7 @@ JAVAFIX2_LINK=
 JAVAFIX3_LINK=
 JAVAFIX4_LINK=
 JAVAFIX5_LINK=
+
 
 
 
