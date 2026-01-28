@@ -1,7 +1,7 @@
 ; --- Hytale Updates ---
 
-V1_NAME=HotFix 3: Jan 24 -> Jan 27 (60,4MB) (Latest)
-V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/5/6.pwr
+V1_NAME=HotFix 3: Jan 24 -> Jan 28 (56,6MB) (Latest)
+V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/6/7.pwr
 V1_JAVAFIX=1
 
 V2_NAME=Update 2: Jan 17 -> Jan 24 (71,1MB)
@@ -35,6 +35,7 @@ JAVAFIX2_LINK=
 JAVAFIX3_LINK=
 JAVAFIX4_LINK=
 JAVAFIX5_LINK=
+
 
 
 
