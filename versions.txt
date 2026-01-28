@@ -2,18 +2,23 @@
 
 V1_NAME=HotFix 3: Jan 24 -> Jan 27 (60,4MB) (Latest)
 V1_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/5/6.pwr
+V1_JAVAFIX=1
 
 V2_NAME=Update 2: Jan 17 -> Jan 24 (71,1MB)
 V2_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/4/5.pwr
+V2_JAVAFIX=1
 
 V3_NAME=Update 1: Jan 15 -> Jan 17 (67,9MB)
 V3_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/3/4.pwr
+V3_JAVAFIX=0
 
 V4_NAME=HotFix 2: Jan 13 -> Jan 15 (57,7MB)
 V4_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr
+V4_JAVAFIX=0
 
 V5_NAME=HotFix 1: Jan 13 -> Jan 13 (59,9MB)
 V5_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/1/2.pwr
+V5_JAVAFIX=0
 
 ; --- Online Fixes ---
 
@@ -23,9 +28,14 @@ FIX1_LINK=
 FIX2_NAME=Online-Fix for 17.01 (89,4MB)
 FIX2_LINK=http://dl.dropboxusercontent.com/scl/fi/mm2bntn58vn9m0ba4ebam/OnlineFixBackup.zip?rlkey=ok6vogia9ey5s7o1evg21e4o7&st=yogaeame&dl=0
 
-; --- Other ---
+; --- JavaFix Links ---
 
-JAVA_FIX_LINK=http://dl.dropboxusercontent.com//scl/fi/91g8f4yvp6hrjq1urvr0j/HytaleServer.jar?rlkey=xf3nayfuzezu1acb11agsqyoz&st=p8f2kd9v&dl=0
+JAVAFIX1_LINK=http://dl.dropboxusercontent.com//scl/fi/91g8f4yvp6hrjq1urvr0j/HytaleServer.jar?rlkey=xf3nayfuzezu1acb11agsqyoz&st=p8f2kd9v&dl=0
+JAVAFIX2_LINK=
+JAVAFIX3_LINK=
+JAVAFIX4_LINK=
+JAVAFIX5_LINK=
+
 
 
 
