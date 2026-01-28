@@ -16,10 +16,6 @@ V4_NAME=HotFix 2: Jan 13 -> Jan 15 (57,7MB)
 V4_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/2/3.pwr
 V4_JAVAFIX=0
 
-V5_NAME=HotFix 1: Jan 13 -> Jan 13 (59,9MB)
-V5_LINK=https://game-patches.hytale.com/patches/windows/amd64/release/1/2.pwr
-V5_JAVAFIX=0
-
 ; --- Online Fixes ---
 
 FIX1_NAME=Online-Fix for 27.01 (MB)
@@ -35,6 +31,7 @@ JAVAFIX2_LINK=
 JAVAFIX3_LINK=
 JAVAFIX4_LINK=
 JAVAFIX5_LINK=
+
 
 
 
